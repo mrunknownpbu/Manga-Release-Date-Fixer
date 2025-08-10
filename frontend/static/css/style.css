@@ -1,0 +1,23 @@
+body {
+  background: #f5f7fa;
+}
+.cover-img {
+  border-radius: 4px;
+  max-width: 60px;
+  max-height: 80px;
+  box-shadow: 0 2px 6px #0001;
+}
+.table td, .table th {
+  vertical-align: middle !important;
+}
+.status-cell {
+  text-align: center;
+  font-size: 1.3em;
+}
+input[type="search"] {
+  font-size: 1.1em;
+}
+.btn[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}

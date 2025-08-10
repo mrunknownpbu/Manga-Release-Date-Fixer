@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manga Release Date Fixer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4">Manga Release Date Fixer</h1>
+    <div class="row mb-3 g-2 align-items-center">
+      <div class="col-md-4">
+        <input class="form-control" id="search" type="search" placeholder="Search (title, chapter, date, etc)">
+      </div>
+      <div class="col-md-4">
+        <div class="btn-group" role="group" aria-label="Status filter">
+          <input type="radio" class="btn-check" name="statusFilter" id="filterAll" value="all" autocomplete="off" checked>
+          <label class="btn btn-outline-secondary" for="filterAll">All</label>
+          <input type="radio" class="btn-check" name="statusFilter" id="filterOk" value="ok" autocomplete="off">
+          <label class="btn btn-outline-success" for="filterOk">Ok ✅</label>
+          <input type="radio" class="btn-check" name="statusFilter" id="filterWrong" value="wrong" autocomplete="off">
+          <label class="btn btn-outline-warning" for="filterWrong">Wrong ⚠</label>
+          <input type="radio" class="btn-check" name="statusFilter" id="filterMissing" value="missing" autocomplete="off">
+          <label class="btn btn-outline-danger" for="filterMissing">Missing ❌</label>
+        </div>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-outline-primary" id="fixAllBtn">
+          <span class="bi bi-wrench-adjustable"></span> Fix All
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered align-middle" id="chapterTable">
+        <thead class="table-light">
+          <tr>
+            <th>Cover</th>
+            <th>Series Title</th>
+            <th>Alt Titles</th>
+            <th>Chapter File</th>
+            <th>Volume</th>
+            <th>Chapter</th>
+            <th>Current Date</th>
+            <th>Official Date</th>
+            <th>File Mod Date</th>
+            <th>Status</th>
+            <th>Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dynamically filled by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Fix All Confirmation Modal -->
+  <div class="modal fade" id="fixAllModal" tabindex="-1" aria-labelledby="fixAllModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fixAllModalLabel">Confirm Fix All</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to fix <span id="toFixCount">all</span> missing or wrong chapters? This will update ComicInfo.xml in-place for all affected files.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="confirmFixAll">Fix All</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
