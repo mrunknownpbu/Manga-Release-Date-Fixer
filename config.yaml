@@ -1,0 +1,21 @@
+# Example configuration for Chapter Release Date Updater
+
+komga:
+  base_url: "http://localhost:25600"
+  # Provide either api_key or username/password. api_key recommended.
+  api_key: "YOUR_KOMGA_API_KEY"
+  username: null
+  password: null
+  # Optional: page size for pagination
+  page_size: 100
+
+mangadex:
+  # Optional: 
+  language: "en"
+  # Rate limit safety delay (seconds) between requests
+  delay_seconds: 0.5
+
+# Per-series mapping (optional if you pass IDs via CLI)
+# Map Komga series ID to MangaDex manga ID for convenience
+series_mapping:
+  # "<komga-series-id>": "<mangadex-manga-id>"
